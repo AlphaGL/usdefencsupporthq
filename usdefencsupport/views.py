@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .models import *
+from django.conf.urls import handler404
 from django.contrib import messages
 
 class HomePageView(TemplateView):
@@ -179,3 +180,12 @@ def admin_dashboard_view(request):
         return redirect('admin_login')
 
     return render(request, 'usdefencsupport/admin_dashboard.html')
+
+
+
+
+# Custom 404 handler
+def custom_404(request, exception):
+    return render(request, 'usdefencsupport/404.html', status=404)
+
+handler404 = 'usdefencesupport.urls.custom_404'  # Important: point to this function
