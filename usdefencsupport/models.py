@@ -1,9 +1,10 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 class TrackSoldier(models.Model):
-    profile = models.ImageField(upload_to='usdefencsupport/img/')
+    profile = CloudinaryField('image')
     name = models.CharField(max_length=200)
     nationality = models.CharField(max_length=200)
     Rank = models.CharField(max_length=200)

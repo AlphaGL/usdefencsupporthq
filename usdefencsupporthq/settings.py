@@ -19,6 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')
 
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -51,6 +55,7 @@ INSTALLED_APPS = [
 
     # My_apps
     'usdefencsupport',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -103,6 +108,9 @@ DATABASES = {
 
 database_url = os.environ.get('DATABASE_URL')
 DATABASES['default'] = dj_database_url.parse(database_url)
+
+
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
