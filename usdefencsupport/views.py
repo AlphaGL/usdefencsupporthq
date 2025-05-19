@@ -188,4 +188,4 @@ def admin_dashboard_view(request):
 def custom_404(request, exception):
     return render(request, 'usdefencsupport/404.html', status=404)
 
-handler404 = 'usdefencesupport.urls.custom_404'  # Important: point to this function
+handler404 = 'usdefencsupporthq.urls.custom_404'  # Important: point to this function
