@@ -24,10 +24,12 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&@v+k4)5vj4*h7m0^*g80k7o=7p9&u5thq%99v^5x5-yn2ry26'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# 'django-insecure-&@v+k4)5vj4*h7m0^*g80k7o=7p9&u5thq%99v^5x5-yn2ry26'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
@@ -88,7 +90,10 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgresql://usdefencsupporthq_user:qIDStZXbjhUAoWMbugqK7GKbvyVcvxLW@dpg-d0ll3fruibrs73ae1l1g-a.oregon-postgres.render.com/usdefencsupporthq")
+
+database_url = os.environ.get('DATABASE_URL')
+DATABASES['default'] = dj_database_url.parse(database_url)
+# postgresql://usdefencsupporthq_user:qIDStZXbjhUAoWMbugqK7GKbvyVcvxLW@dpg-d0ll3fruibrs73ae1l1g-a.oregon-postgres.render.com/usdefencsupporthq
 
 
 
