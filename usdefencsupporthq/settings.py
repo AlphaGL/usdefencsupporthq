@@ -50,6 +50,11 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
+
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -91,7 +96,7 @@ DATABASES = {
 }
 
 
-database_url = os.environ.get('DATABASE_URL')
+database_url = os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3')
 DATABASES['default'] = dj_database_url.parse(database_url)
 # postgresql://usdefencsupporthq_user:qIDStZXbjhUAoWMbugqK7GKbvyVcvxLW@dpg-d0ll3fruibrs73ae1l1g-a.oregon-postgres.render.com/usdefencsupporthq
 
@@ -132,6 +137,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is where collectstatic will gather all files
+
+# If your app has its own static folder
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'usdefencsupport/static'),  # replace with your app name
+]
+
 
 # settings.py
 
