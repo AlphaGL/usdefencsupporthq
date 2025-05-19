@@ -138,6 +138,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+LOGIN_URL = '/admin-login/'  # redirect unauthorized users to custom admin login
+
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is where collectstatic will gather all files
 
 # If your app has its own static folder

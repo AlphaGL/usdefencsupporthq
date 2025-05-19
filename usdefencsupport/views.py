@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.contrib.auth import authenticate, login,logout
+from django.views.generic import *
+from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from .models import *
 from django.contrib import messages
 
@@ -32,6 +36,36 @@ def request_call_view(request):
         return redirect('request_call')
     
     return render(request, 'usdefencsupport/request_call.html')
+
+
+
+@method_decorator(login_required, name='dispatch')
+class SoldierListView(ListView):
+    model = TrackSoldier
+    template_name = 'usdefencsupport/soldier_list.html'
+    context_object_name = 'soldiers'
+
+
+@method_decorator(login_required, name='dispatch')
+class SoldierCreateView(CreateView):
+    model = TrackSoldier
+    fields = '__all__'
+    template_name = 'usdefencsupport/soldier_form.html'
+    success_url = reverse_lazy('soldier_list')
+
+@method_decorator(login_required, name='dispatch')
+class SoldierUpdateView(UpdateView):
+    model = TrackSoldier
+    fields = '__all__'
+    template_name = 'usdefencsupport/soldier_form.html'
+    success_url = reverse_lazy('soldier_list')
+
+@method_decorator(login_required, name='dispatch')
+class SoldierDeleteView(DeleteView):
+    model = TrackSoldier
+    template_name = 'usdefencsupport/soldier_confirm_delete.html'
+    success_url = reverse_lazy('soldier_list')
+
 
 def track_soldier_view(request):
     soldier = None
@@ -89,3 +123,59 @@ def medical_report_view(request):
         return redirect('medical_report')
 
     return render(request, 'usdefencsupport/medical_report.html')
+
+
+
+
+
+
+@method_decorator(login_required, name='dispatch')
+class RequestCallListView(ListView):
+    model = RequestCall
+    template_name = 'usdefencsupport/request_call_list.html'
+    context_object_name = 'requests'
+
+@method_decorator(login_required, name='dispatch')
+class FlightBookingListView(ListView):
+    model = FlightBooking
+    template_name = 'usdefencsupport/flight_booking_list.html'
+    context_object_name = 'flights'
+
+@method_decorator(login_required, name='dispatch')
+class MedicalReportListView(ListView):
+    model = MedicalReport
+    template_name = 'usdefencsupport/medical_report_list.html'
+    context_object_name = 'reports'
+
+
+
+def admin_login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None and user.is_staff:
+            login(request, user)
+            messages.success(request, 'Login successful.')
+            return redirect('admin_dashboard')  # You will create this page next
+        else:
+            messages.error(request, 'Invalid credentials or not authorized.')
+
+    return render(request, 'usdefencsupport/admin_login.html')
+
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You have been logged out successfully.")
+    return redirect('home')  # Redirect to your home
+
+
+@login_required
+def admin_dashboard_view(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You are not authorized to access this page.')
+        return redirect('admin_login')
+
+    return render(request, 'usdefencsupport/admin_dashboard.html')

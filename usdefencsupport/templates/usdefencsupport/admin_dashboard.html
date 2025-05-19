@@ -1,0 +1,66 @@
+{% extends 'usdefencsupport/base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5 text-white">
+        <h2>Welcome, {{ request.user.username }}</h2>
+        <p class="lead">Use the dashboard to manage all system activities.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Soldier Management -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow bg-dark text-white border-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Soldier Management</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'soldier_list' %}" class="text-info text-decoration-none">View Soldiers</a></li>
+                        <li><a href="{% url 'soldier_add' %}" class="text-info text-decoration-none">Add New Soldier</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Request Calls -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow bg-dark text-white border-success">
+                <div class="card-body">
+                    <h5 class="card-title">Request Calls</h5>
+                    <p><a href="{% url 'request_list' %}" class="btn btn-success btn-sm">View Requests</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flight Bookings -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow bg-dark text-white border-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Flight Bookings</h5>
+                    <p><a href="{% url 'flight_list' %}" class="btn btn-warning btn-sm text-dark">View Bookings</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Reports -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow bg-dark text-white border-danger">
+                <div class="card-body">
+                    <h5 class="card-title">Medical Reports</h5>
+                    <p><a href="{% url 'report_list' %}" class="btn btn-danger btn-sm">View Reports</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow bg-dark text-white border-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Logout</h5>
+                    <p><a href="{% url 'logout' %}" class="btn btn-outline-light btn-sm">Logout</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

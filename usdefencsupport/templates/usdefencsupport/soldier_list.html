@@ -1,0 +1,21 @@
+{% extends 'usdefencsupport/base.html' %}
+{% block content %}
+<h2>All Soldiers</h2>
+<a href="{% url 'soldier_add' %}" class="btn btn-success mb-3">Add Soldier</a>
+<table class="table table-bordered">
+    <thead><tr><th>Name</th><th>Nationality</th><th>Rank</th><th>Actions</th></tr></thead>
+    <tbody>
+        {% for soldier in soldiers %}
+        <tr>
+            <td>{{ soldier.name }}</td>
+            <td>{{ soldier.nationality }}</td>
+            <td>{{ soldier.Rank }}</td>
+            <td>
+                <a href="{% url 'soldier_edit' soldier.pk %}">Edit</a> |
+                <a href="{% url 'soldier_delete' soldier.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
