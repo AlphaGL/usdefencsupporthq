@@ -1,0 +1,37 @@
+{% extends 'Usdefencsupport/base.html' %}
+{% block title %}Track Soldier{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4" style="color: #fff;">Track Soldier</h2>
+    <form method="POST" class="bg-light p-4 rounded shadow mb-4">
+        {% csrf_token %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-danger">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        <label>Enter Soldier Name</label>
+        <input type="text" name="soldier_name" class="form-control mb-3" required>
+        <button class="btn btn-primary">Track</button>
+    </form>
+
+    {% if soldier %}
+    <div class="card p-4 shadow">
+        <div class="text-center mb-3">
+            <img src="{{ soldier.profile.url }}" class="img-thumbnail" width="150">
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Name:</strong> {{ soldier.name }}</li>
+            <li class="list-group-item"><strong>Nationality:</strong> {{ soldier.nationality }}</li>
+            <li class="list-group-item"><strong>Rank:</strong> {{ soldier.Rank }}</li>
+            <li class="list-group-item"><strong>Height:</strong> {{ soldier.Height }} ft</li>
+            <li class="list-group-item"><strong>Kids:</strong> {{ soldier.kids }}</li>
+            <li class="list-group-item"><strong>Marital Status:</strong> {{ soldier.marital_status }}</li>
+            <li class="list-group-item"><strong>Grade A:</strong> {{ soldier.grade_a }}</li>
+            <li class="list-group-item"><strong>Division:</strong> {{ soldier.division }}</li>
+            <li class="list-group-item"><strong>Grade B:</strong> {{ soldier.grade_b }}</li>
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

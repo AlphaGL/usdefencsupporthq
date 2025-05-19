@@ -1,0 +1,46 @@
+{% extends 'Usdefencsupport/base.html' %}
+{% block title %}Request a Call{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4" style="color: #fff;">Request a Call</h2>
+    <form method="POST" class="bg-light p-4 rounded shadow">
+        {% csrf_token %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Mobile Carrier</label>
+                <input type="text" name="mobile_carrier" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Country</label>
+                <input type="text" name="country" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Minutes Requested</label>
+                <input type="text" name="minute_requested" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Country of Deploy</label>
+                <input type="text" name="country_of_deploy" class="form-control" required>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label>Name of Soldier</label>
+                <input type="text" name="name_of_soldier" class="form-control" required>
+            </div>
+        </div>
+        <button class="btn btn-primary w-100">Submit</button>
+    </form>
+</div>
+{% endblock %}

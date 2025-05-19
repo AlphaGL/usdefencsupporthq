@@ -1,0 +1,97 @@
+{% extends 'Usdefencsupport/base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+
+<!-- Page Header Start -->
+<div class="container-fluid mb-5 py-5 position-relative" style="background: url('{% static 'img/about-us.jpg' %}') center center / cover no-repeat;">
+    <div class="container">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+        <nav aria-label="breadcrumb" class="animated slideInDown">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-white">Pages</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+            </ol> 
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- About Start -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-primary text-uppercase">About Us</h6>
+            <h1 class="display-5 fw-bold">We Are Your Defense</h1>
+            <p class="lead">The Department of Defense is America's largest government agency, committed to safeguarding the nation's security.</p>
+        </div>
+
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <img src="{% static 'img/department.avif' %}" class="img-fluid rounded" alt="Department of Defense">
+            </div>
+            <div class="col-lg-6">
+                <p class="mb-4">With roots tracing back to before the Revolutionary War, the Department of Defense has grown and evolved alongside our nation. Our primary mission is to provide the military forces necessary to deter war and ensure national security.</p>
+                <ul class="list-unstyled">
+                    <li><strong>$841.4 Billion</strong> – National Defense Budget</li>
+                    <li><strong>3.4 Million</strong> – Service Members & Civilians</li>
+                    <li><strong>4,800 Sites</strong> – Located in Over 160 Countries</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Armed Forces</h2>
+            <p class="mb-4">The U.S. Armed Forces include:</p>
+            <div class="row g-4">
+                <div class="col-md-3 col-6"><img src="{% static 'img/army-about.avif' %}" alt="Army" class="img-fluid mb-2"> <p>Army</p></div>
+                <div class="col-md-3 col-6"><img src="{% static 'img/marine-corps.jpeg' %}" alt="Marine Corps" class="img-fluid mb-2"> <p>Marine Corps</p></div>
+                <div class="col-md-3 col-6"><img src="{% static 'img/navy.avif' %}" alt="Navy" class="img-fluid mb-2"> <p>Navy</p></div>
+                <div class="col-md-3 col-6"><img src="{% static 'img/airforce.avif' %}" alt="Air Force" class="img-fluid mb-2"> <p>Air Force</p></div>
+                <div class="col-md-3 col-6"><img src="{% static 'img/space-force.avif' %}" alt="Space Force" class="img-fluid mb-2"> <p>Space Force</p></div>
+                <div class="col-md-3 col-6"><img src="{% static 'img/coast-guard.webp' %}" alt="Coast Guard" class="img-fluid mb-2"> <p>Coast Guard</p></div>
+                <div class="col-md-3 col-6"><img src="{% static 'img/national-guard.avif' %}" alt="National Guard" class="img-fluid mb-2"> <p>National Guard</p></div>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-6">
+                <h3 class="fw-bold">Combatant Commands</h3>
+                <p>The Department of Defense oversees 11 combatant commands. Each command has either a geographic or functional focus, providing leadership and control of military forces during peace and conflict.</p>
+            </div>
+            <div class="col-md-6">
+                <h3 class="fw-bold">Leadership</h3>
+                <p>Our leadership includes:</p>
+                <ul class="list-unstyled">
+                    <li><strong>Secretary of Defense:</strong> Hon. Pete Hegseth</li>
+                    <li><strong>Deputy Secretary of Defense:</strong> Hon. Steve Feinberg</li>
+                    <li><strong>Chairman, Joint Chiefs of Staff:</strong> Gen. Dan Caine (Air Force)</li>
+                    <li><strong>Vice Chairman, Joint Chiefs of Staff:</strong> Adm. Christopher W. Grady (Navy)</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row g-5">
+            <div class="col-md-6">
+                <h3 class="fw-bold">Our History</h3>
+                <p>The Department of Defense is America's oldest and most expansive government institution. From its beginnings before the Revolution to today’s global operations, the DOD has played a pivotal role in defending the nation and driving innovation.</p>
+            </div>
+            <div class="col-md-6">
+                <h3 class="fw-bold">The Pentagon</h3>
+                <p>As the headquarters of the Department of Defense, the Pentagon is an architectural and symbolic landmark. Each year, over 100,000 visitors explore its historic halls and memorials with guided tours led by active-duty service members.</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="/" class="btn btn-primary py-3 px-5">Take a Pentagon Tour</a>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+{% endblock %}
