@@ -5,7 +5,6 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .models import *
-from django.conf.urls import handler404
 from django.contrib import messages
 
 class HomePageView(TemplateView):
