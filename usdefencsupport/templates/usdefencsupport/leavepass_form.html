@@ -10,6 +10,11 @@
         <div class="card-body">
             <form method="post">
                 {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="id_name" class="form-label">Your Name</label>
