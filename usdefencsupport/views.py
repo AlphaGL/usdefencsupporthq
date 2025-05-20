@@ -129,7 +129,7 @@ def medical_report_view(request):
 
 
 
-@method_decorator(login_required, name='dispatch')
+@login_required
 def leavepass_list(request):
     leavepasses = LeavePassRequest.objects.all()
     return render(request, 'usdefencsupport/leavepass_list.html', {'leavepasses': leavepasses})
@@ -140,12 +140,12 @@ def leavepass_create(request):
         form = LeavePassRequestForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('leavepass_list')
+            return redirect('leavepass_add')
     else:
         form = LeavePassRequestForm()
     return render(request, 'usdefencsupport/leavepass_form.html', {'form': form, 'title': 'Add Leave Pass'})
 
-@method_decorator(login_required, name='dispatch')
+@login_required
 def leavepass_edit(request, pk):
     leavepass = get_object_or_404(LeavePassRequest, pk=pk)
     if request.method == 'POST':
@@ -157,7 +157,7 @@ def leavepass_edit(request, pk):
         form = LeavePassRequestForm(instance=leavepass)
     return render(request, 'usdefencsupport/leavepass_form.html', {'form': form, 'title': 'Edit Leave Pass'})
 
-@method_decorator(login_required, name='dispatch')
+@login_required
 def leavepass_delete(request, pk):
     leavepass = get_object_or_404(LeavePassRequest, pk=pk)
     if request.method == 'POST':
