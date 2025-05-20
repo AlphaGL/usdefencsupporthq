@@ -132,7 +132,7 @@ def medical_report_view(request):
 @method_decorator(login_required, name='dispatch')
 def leavepass_list(request):
     leavepasses = LeavePassRequest.objects.all()
-    return render(request, 'leavepass/leavepass_list.html', {'leavepasses': leavepasses})
+    return render(request, 'usdefencsupport/leavepass_list.html', {'leavepasses': leavepasses})
 
 # Create new leave pass request
 def leavepass_create(request):
@@ -143,7 +143,7 @@ def leavepass_create(request):
             return redirect('leavepass_list')
     else:
         form = LeavePassRequestForm()
-    return render(request, 'leavepass/leavepass_form.html', {'form': form, 'title': 'Add Leave Pass'})
+    return render(request, 'usdefencsupport/leavepass_form.html', {'form': form, 'title': 'Add Leave Pass'})
 
 @method_decorator(login_required, name='dispatch')
 def leavepass_edit(request, pk):
@@ -155,7 +155,7 @@ def leavepass_edit(request, pk):
             return redirect('leavepass_list')
     else:
         form = LeavePassRequestForm(instance=leavepass)
-    return render(request, 'leavepass/leavepass_form.html', {'form': form, 'title': 'Edit Leave Pass'})
+    return render(request, 'usdefencsupport/leavepass_form.html', {'form': form, 'title': 'Edit Leave Pass'})
 
 @method_decorator(login_required, name='dispatch')
 def leavepass_delete(request, pk):
@@ -163,7 +163,7 @@ def leavepass_delete(request, pk):
     if request.method == 'POST':
         leavepass.delete()
         return redirect('leavepass_list')
-    return render(request, 'leavepass/leavepass_confirm_delete.html', {'leavepass': leavepass})
+    return render(request, 'usdefencsupport/leavepass_confirm_delete.html', {'leavepass': leavepass})
 
 
 
