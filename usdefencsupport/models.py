@@ -54,3 +54,23 @@ class MedicalReport(models.Model):
 
     def __str__(self):
         return f"Medical Report for {self.soldier_name}"
+    
+
+class LeavePassRequest(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    name_of_soldier = models.CharField(max_length=200)
+    leave_duration = models.CharField(
+        max_length=20,
+        choices=[
+            ('3_weeks', '3 Weeks'),
+            ('1_month', '1 Month'),
+            ('3_months', '3 Months'),
+        ],
+        default='3_weeks'
+    )
+    reason_for_leave = models.TextField()
+
+    def __str__(self):
+        return self.name
+

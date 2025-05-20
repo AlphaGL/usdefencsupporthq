@@ -20,6 +20,12 @@ urlpatterns = [
     path('medical-report/', views.medical_report_view, name='medical_report'),
 
 
+    path('leavepass/', views.leavepass_list, name='leavepass_list'),
+    path('leavepass/add/', views.leavepass_create, name='leavepass_add'),
+    path('leavepass/<int:pk>/edit/', views.leavepass_edit, name='leavepass_edit'),
+    path('leavepass/<int:pk>/delete/', views.leavepass_delete, name='leavepass_delete'),
+
+
         # Admin login and dashboard
     path('logout/', views.logout_view, name='logout'),
     path('admin-login/', views.admin_login_view, name='admin_login'),

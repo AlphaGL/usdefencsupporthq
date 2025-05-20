@@ -112,6 +112,7 @@
                 <a href="{% url 'home' %}" class="nav-item nav-link text-light {% if request.path == '/' %}active{% endif %}">Home</a>
                 <a href="{% url 'about' %}" class="nav-item nav-link text-light {% if request.path == '/about/' %}active{% endif %}">About Us</a>
                 <a href="{% url 'request_call' %}" class="nav-item nav-link text-light {% if request.path == '/request-call/' %}active{% endif %}">Call Request</a>
+                <a href="{% url 'leavepass_add' %}" class="nav-item nav-link text-light {% if request.path == '/leavepass/add/' %}active{% endif %}">Leave and Pass Request</a>
                 <a href="{% url 'medical_report' %}" class="nav-item nav-link text-light {% if request.path == '/medical-report/' %}active{% endif %}">Medical Report</a>
                 <a href="{% url 'book_flight' %}" class="nav-item nav-link text-light {% if request.path == '/book-flight/' %}active{% endif %}">Book Your Flight</a>
                 <a href="{% url 'track_soldier' %}" class="nav-item nav-link text-light {% if request.path == '/track-soldier/' %}active{% endif %}">Track A Soldier</a>

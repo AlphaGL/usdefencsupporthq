@@ -1,0 +1,10 @@
+{% extends 'usdefencsupport/base.html' %}
+{% block content %}
+<h2>Confirm Delete</h2>
+<p>Are you sure you want to delete leave request for <strong>{{ leavepass.name }}</strong>?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'leavepass_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

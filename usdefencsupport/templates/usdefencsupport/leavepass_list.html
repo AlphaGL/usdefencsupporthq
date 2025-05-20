@@ -1,0 +1,32 @@
+{% extends 'usdefencsupport/base.html' %}
+{% block content %}
+<h2>All Leave Pass Requests</h2>
+<a href="{% url 'leavepass_add' %}" class="btn btn-success mb-3">Add Leave Pass</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Soldier</th>
+            <th>Email</th>
+            <th>Duration</th>
+            <th>Reason</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lp in leavepasses %}
+        <tr>
+            <td>{{ lp.name }}</td>
+            <td>{{ lp.name_of_soldier }}</td>
+            <td>{{ lp.email }}</td>
+            <td>{{ lp.get_leave_duration_display }}</td>
+            <td>{{ lp.reason_for_leave|truncatewords:10 }}</td>
+            <td>
+                <a href="{% url 'leavepass_edit' lp.pk %}">Edit</a> |
+                <a href="{% url 'leavepass_delete' lp.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
