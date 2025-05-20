@@ -13,24 +13,24 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="id_name" class="form-label">Your Name</label>
-                        {{ form.name|as_widget(attrs={'class': 'form-control bg-dark text-white border-success'}) }}
+                        {{ form.name }}
                     </div>
                     <div class="col-md-6">
                         <label for="id_email" class="form-label">Your Email</label>
-                        {{ form.email|as_widget(attrs={'class': 'form-control bg-dark text-white border-success'}) }}
+                        {{ form.email }}
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="id_name_of_soldier" class="form-label">Name of Soldier</label>
-                    {{ form.name_of_soldier|as_widget(attrs={'class': 'form-control bg-dark text-white border-success'}) }}
+                    {{ form.name_of_soldier }}
                 </div>
                 <div class="mb-3">
                     <label for="id_leave_duration" class="form-label">Leave Duration</label>
-                    {{ form.leave_duration|as_widget(attrs={'class': 'form-select bg-dark text-white border-success'}) }}
+                    {{ form.leave_duration }}
                 </div>
                 <div class="mb-3">
                     <label for="id_reason_for_leave" class="form-label">Reason for Leave</label>
-                    {{ form.reason_for_leave|as_widget(attrs={'class': 'form-control bg-dark text-white border-success', 'rows': 4}) }}
+                    {{ form.reason_for_leave }}
                 </div>
 
                 <div class="text-center">
