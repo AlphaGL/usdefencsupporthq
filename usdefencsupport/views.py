@@ -180,12 +180,3 @@ def admin_dashboard_view(request):
         return redirect('admin_login')
 
     return render(request, 'usdefencsupport/admin_dashboard.html')
-
-
-
-
-# Custom 404 handler
-def custom_404(request, exception):
-    return render(request, 'usdefencsupport/404.html', status=404)
-
-handler404 = 'usdefencsupporthq.urls.custom_404'  # Important: point to this function
