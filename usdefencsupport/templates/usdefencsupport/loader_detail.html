@@ -14,39 +14,21 @@
                 <li class="list-group-item bg-dark text-white"><strong>Spouse:</strong> {{ object.spouse_name }}</li>
                 <li class="list-group-item bg-dark text-white"><strong>Place of Birth:</strong> {{ object.place_of_birth }}</li>
 
-                <li class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong>W2 Form:</strong>
-                        {% if object.w2_form %}
-                            <span class="text-success ms-2">Available</span>
-                        {% else %}
-                            <span class="text-warning ms-2">N/A</span>
-                        {% endif %}
-                    </div>
+                <li class="list-group-item bg-dark text-white">
+                    <strong>W2 Form:</strong> 
                     {% if object.w2_form %}
-                        <a href="https://res.cloudinary.com/dnkdegtms/raw/upload/{{ object.w2_form.public_id }}" class="btn btn-outline-light btn-sm" target="_blank" download>
-                            Download
-                        </a>
-                        <!-- Debugging output -->
-                        <p>Raw URL: {{ object.w2_form.url }}</p>
-                        <p>Raw public_id: {{ object.w2_form.public_id }}</p>
-
+                        <a href="{{ object.w2_form.url }}" class="btn btn-outline-light btn-sm ms-2" target="_blank" download>Download</a>
+                    {% else %}
+                        <span class="text-warning">N/A</span>
                     {% endif %}
                 </li>
-
-                <li class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong>SSA 1099 Form:</strong>
-                        {% if object.ssa_1099_form %}
-                            <span class="text-success ms-2">Available</span>
-                        {% else %}
-                            <span class="text-warning ms-2">N/A</span>
-                        {% endif %}
-                    </div>
+                
+                <li class="list-group-item bg-dark text-white">
+                    <strong>SSA 1099 Form:</strong> 
                     {% if object.ssa_1099_form %}
-                        <a href="https://res.cloudinary.com/dnkdegtms/raw/upload/{{ object.ssa_1099_form.public_id }}" class="btn btn-outline-light btn-sm" target="_blank" download>
-                            Download
-                        </a>
+                        <a href="{{ object.ssa_1099_form.url }}" class="btn btn-outline-light btn-sm ms-2" target="_blank" download>Download</a>
+                    {% else %}
+                        <span class="text-warning">N/A</span>
                     {% endif %}
                 </li>
 
