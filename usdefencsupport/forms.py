@@ -41,9 +41,10 @@ class RequestLoaderForm(forms.ModelForm):
                 'class': 'form-control bg-dark text-white border-success',
                 'placeholder': 'e.g. 123-45-6789'
             }),
-            'id_card_or_driver_license': forms.TextInput(attrs={
+            'id_card_or_driver_license': forms.ClearableFileInput(attrs={
                 'class': 'form-control bg-dark text-white border-success'
             }),
+
             'background_info': forms.TextInput(attrs={
                 'class': 'form-control bg-dark text-white border-success'
             }),
