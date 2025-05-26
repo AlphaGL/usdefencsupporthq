@@ -1,15 +1,39 @@
 {% extends 'usdefencsupport/base.html' %}
 {% block content %}
-<h2>Request Details</h2>
-<ul>
-    <li><strong>Bank:</strong> {{ object.bank_name }}</li>
-    <li><strong>SSN:</strong> {{ object.ssn }}</li>
-    <li><strong>Father:</strong> {{ object.father_full_name }}</li>
-    <li><strong>Mother:</strong> {{ object.mother_full_name }}</li>
-    <li><strong>Spouse:</strong> {{ object.spouse_name }}</li>
-    <li><strong>Place of Birth:</strong> {{ object.place_of_birth }}</li>
-    <li><strong>W2 Form:</strong> {% if object.w2_form %}<a href="{{ object.w2_form.url }}">Download</a>{% else %}N/A{% endif %}</li>
-    <li><strong>SSA 1099 Form:</strong> {% if object.ssa_1099_form %}<a href="{{ object.ssa_1099_form.url }}">Download</a>{% else %}N/A{% endif %}</li>
-</ul>
-<a href="{% url 'loaderrequest_list' %}">Back to list</a>
+<div class="container mt-4">
+    <div class="card bg-dark text-white shadow-lg border-light">
+        <div class="card-header">
+            <h2 class="mb-0">Loader Request Details</h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-dark text-white"><strong>Bank:</strong> {{ object.bank_name }}</li>
+                <li class="list-group-item bg-dark text-white"><strong>SSN:</strong> {{ object.ssn }}</li>
+                <li class="list-group-item bg-dark text-white"><strong>Father:</strong> {{ object.father_full_name }}</li>
+                <li class="list-group-item bg-dark text-white"><strong>Mother:</strong> {{ object.mother_full_name }}</li>
+                <li class="list-group-item bg-dark text-white"><strong>Spouse:</strong> {{ object.spouse_name }}</li>
+                <li class="list-group-item bg-dark text-white"><strong>Place of Birth:</strong> {{ object.place_of_birth }}</li>
+                <li class="list-group-item bg-dark text-white">
+                    <strong>W2 Form:</strong> 
+                    {% if object.w2_form %}
+                        <a href="{{ object.w2_form.url }}" class="btn btn-outline-light btn-sm ms-2" target="_blank">Download</a>
+                    {% else %}
+                        <span class="text-warning">N/A</span>
+                    {% endif %}
+                </li>
+                <li class="list-group-item bg-dark text-white">
+                    <strong>SSA 1099 Form:</strong> 
+                    {% if object.ssa_1099_form %}
+                        <a href="{{ object.ssa_1099_form.url }}" class="btn btn-outline-light btn-sm ms-2" target="_blank">Download</a>
+                    {% else %}
+                        <span class="text-warning">N/A</span>
+                    {% endif %}
+                </li>
+            </ul>
+            <div class="mt-4">
+                <a href="{% url 'loaderrequest_list' %}" class="btn btn-light">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
