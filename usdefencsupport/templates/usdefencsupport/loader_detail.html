@@ -27,6 +27,10 @@
                         <a href="https://res.cloudinary.com/dnkdegtms/raw/upload/{{ object.w2_form.public_id }}" class="btn btn-outline-light btn-sm" target="_blank" download>
                             Download
                         </a>
+                        <!-- Debugging output -->
+                        <p>Raw URL: {{ object.w2_form.url }}</p>
+                        <p>Raw public_id: {{ object.w2_form.public_id }}</p>
+
                     {% endif %}
                 </li>
 
