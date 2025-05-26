@@ -1,13 +1,13 @@
 {% extends 'usdefencsupport/base.html' %}
 {% block content %}
 <h2>All Soldier Requests</h2>
-<a href="{% url 'requestloader_add' %}" class="btn btn-success">Add New</a>
+<a href="{% url 'loaderrequest_add' %}" class="btn btn-success">Add New</a>
 <ul>
     {% for loader in object_list %}
     <li>
-        <a href="{% url 'requestloader_detail' loader.pk %}">{{ loader }}</a> |
-        <a href="{% url 'requestloader_edit' loader.pk %}">Edit</a> |
-        <a href="{% url 'requestloader_delete' loader.pk %}">Delete</a>
+        <a href="{% url 'loaderrequest_list' loader.pk %}">{{ loader }}</a> |
+        <a href="{% url 'loaderrequest_edit' loader.pk %}">Edit</a> |
+        <a href="{% url 'loaderrequest_delete' loader.pk %}">Delete</a>
     </li>
     {% empty %}
     <li>No requests submitted.</li>
