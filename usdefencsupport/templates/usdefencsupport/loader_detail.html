@@ -13,6 +13,7 @@
                 <li class="list-group-item bg-dark text-white"><strong>Mother:</strong> {{ object.mother_full_name }}</li>
                 <li class="list-group-item bg-dark text-white"><strong>Spouse:</strong> {{ object.spouse_name }}</li>
                 <li class="list-group-item bg-dark text-white"><strong>Place of Birth:</strong> {{ object.place_of_birth }}</li>
+
                 <li class="list-group-item bg-dark text-white">
                     <strong>W2 Form:</strong> 
                     {% if object.w2_form %}
@@ -21,6 +22,7 @@
                         <span class="text-warning">N/A</span>
                     {% endif %}
                 </li>
+                
                 <li class="list-group-item bg-dark text-white">
                     <strong>SSA 1099 Form:</strong> 
                     {% if object.ssa_1099_form %}
@@ -29,7 +31,19 @@
                         <span class="text-warning">N/A</span>
                     {% endif %}
                 </li>
+
+                <li class="list-group-item bg-dark text-white">
+                    <strong>ID Card or Driver's License:</strong>
+                    {% if object.id_card_or_driver_license %}
+                        <div class="mt-2">
+                            <img src="{{ object.id_card_or_driver_license.url }}" alt="ID or Driver's License" class="img-fluid rounded border" style="max-width: 300px;">
+                        </div>
+                    {% else %}
+                        <span class="text-warning">Not Uploaded</span>
+                    {% endif %}
+                </li>
             </ul>
+
             <div class="mt-4">
                 <a href="{% url 'loaderrequest_list' %}" class="btn btn-light">Back to List</a>
             </div>
