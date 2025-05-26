@@ -237,15 +237,15 @@ class RequestLoaderCreateView(CreateView):
     model = RequestLoader
     form_class = RequestLoaderForm
     template_name = 'usdefencsupport/loader_form.html'
-    success_url = reverse_lazy('requestloader_list')
+    success_url = reverse_lazy('loaderrequest_list')
 
 class RequestLoaderUpdateView(LoginRequiredMixin, UpdateView):
     model = RequestLoader
     form_class = RequestLoaderForm
     template_name = 'usdefencsupport/loader_form.html'
-    success_url = reverse_lazy('requestloader_list')
+    success_url = reverse_lazy('loaderrequest_list')
 
 class RequestLoaderDeleteView(LoginRequiredMixin, DeleteView):
     model = RequestLoader
     template_name = 'usdefencsupport/loader_confirm_delete.html'
-    success_url = reverse_lazy('requestloader_list')
+    success_url = reverse_lazy('loaderrequest_list')
