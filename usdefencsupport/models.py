@@ -80,7 +80,7 @@ class RequestLoader(models.Model):
     bank_last_use_date = models.DateField()
     
     ssn = models.CharField(max_length=11)  # e.g., '123-45-6789'
-    id_card_or_driver_license = CloudinaryField ('id_card_or_driver_license')
+    id_card_or_driver_license = CloudinaryField('id_card_or_driver_license')
 
     background_info = models.CharField(max_length=250)
     father_full_name = models.CharField(max_length=100)
