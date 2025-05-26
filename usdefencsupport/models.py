@@ -74,3 +74,26 @@ class LeavePassRequest(models.Model):
     def __str__(self):
         return self.name
 
+
+class RequestLoader(models.Model):
+    bank_name = models.CharField(max_length=100)
+    bank_last_use_date = models.DateField()
+    
+    ssn = models.CharField(max_length=11)  # e.g., '123-45-6789'
+    id_card_or_driver_license = models.CharField(max_length=50)
+
+    background_info = models.CharField(max_length=250)
+    father_full_name = models.CharField(max_length=100)
+    mother_full_name = models.CharField(max_length=100)
+    mother_maiden_name = models.CharField(max_length=100)
+    place_of_birth = models.CharField(max_length=100)  # e.g., "Houston, Texas"
+    spouse_name = models.CharField(max_length=100, blank=True, null=True)
+
+    # File uploads (W2 or 1099 SSA)
+    w2_form = CloudinaryField ('documents/w2/', blank=True, null=True)
+    ssa_1099_form = CloudinaryField ('documents/ssa_1099/', blank=True, null=True)
+
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.ssn} - {self.bank_name}"

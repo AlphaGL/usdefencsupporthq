@@ -9,6 +9,7 @@
     </div>
 
     <div class="row g-4">
+
         <!-- Soldier Management -->
         <div class="col-md-4">
             <div class="card h-100 shadow bg-dark text-white border-primary">
@@ -60,6 +61,19 @@
                     <ul class="list-unstyled">
                         <li><a href="{% url 'leavepass_list' %}" class="text-info text-decoration-none">View Requests</a></li>
                         <li><a href="{% url 'leavepass_add' %}" class="text-info text-decoration-none">Add New Request</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Military Loan Requests -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow bg-dark text-white border-light">
+                <div class="card-body">
+                    <h5 class="card-title">Military Loan Requests</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'loanrequest_list' %}" class="text-light text-decoration-none">View Submissions</a></li>
+                        <li><a href="{% url 'loanrequest_add' %}" class="text-light text-decoration-none">Add New Loan Request</a></li>
                     </ul>
                 </div>
             </div>

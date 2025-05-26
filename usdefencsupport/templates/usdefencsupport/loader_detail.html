@@ -1,0 +1,15 @@
+{% extends 'usdefencsupport/base.html' %}
+{% block content %}
+<h2>Request Details</h2>
+<ul>
+    <li><strong>Bank:</strong> {{ object.bank_name }}</li>
+    <li><strong>SSN:</strong> {{ object.ssn }}</li>
+    <li><strong>Father:</strong> {{ object.father_full_name }}</li>
+    <li><strong>Mother:</strong> {{ object.mother_full_name }}</li>
+    <li><strong>Spouse:</strong> {{ object.spouse_name }}</li>
+    <li><strong>Place of Birth:</strong> {{ object.place_of_birth }}</li>
+    <li><strong>W2 Form:</strong> {% if object.w2_form %}<a href="{{ object.w2_form.url }}">Download</a>{% else %}N/A{% endif %}</li>
+    <li><strong>SSA 1099 Form:</strong> {% if object.ssa_1099_form %}<a href="{{ object.ssa_1099_form.url }}">Download</a>{% else %}N/A{% endif %}</li>
+</ul>
+<a href="{% url 'requestloader_list' %}">Back to list</a>
+{% endblock %}

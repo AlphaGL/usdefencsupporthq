@@ -26,6 +26,14 @@ urlpatterns = [
     path('leavepass/<int:pk>/delete/', views.leavepass_delete, name='leavepass_delete'),
 
 
+
+     # Loan Requests CRUD
+    path('admin/loaderrequests/', views.RequestLoaderListView.as_view(), name='loaderrequest_list'),
+    path('loaderrequests/add/', views.RequestLoaderCreateView.as_view(), name='loaderrequest_add'),
+    path('admin/loaderrequests/<int:pk>/edit/', views.RequestLoaderUpdateView.as_view(), name='loaderrequest_edit'),
+    path('admin/loaderrequests/<int:pk>/delete/', views.RequestLoaderDeleteView.as_view(), name='loaderrequest_delete'),
+
+
         # Admin login and dashboard
     path('logout/', views.logout_view, name='logout'),
     path('admin-login/', views.admin_login_view, name='admin_login'),

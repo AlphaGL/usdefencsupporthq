@@ -1,0 +1,9 @@
+{% extends 'usdefencsupport/base.html' %}
+{% block content %}
+<h2>{{ view.object.pk|yesno:"Edit Soldier,Add New Soldier" }}</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}
