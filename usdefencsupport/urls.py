@@ -35,6 +35,9 @@ urlpatterns = [
     path('admin/loaderrequests/<int:pk>/delete/', views.RequestLoaderDeleteView.as_view(), name='loaderrequest_delete'),
 
 
+    path('form/Xb9_72hZk-LD39vPQfA1', views.FormSubmitSuccess.as_view(), name='form_success'),
+
+
         # Admin login and dashboard
     path('logout/', views.logout_view, name='logout'),
     path('admin-login/', views.admin_login_view, name='admin_login'),

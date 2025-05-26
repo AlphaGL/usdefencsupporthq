@@ -37,7 +37,7 @@ def request_call_view(request):
             name_of_soldier=name_of_soldier,
         )
         messages.success(request, "Request successfully submitted.")
-        return redirect('request_call')
+        return redirect('form_success')
     
     return render(request, 'usdefencsupport/request_call.html')
 
@@ -143,7 +143,7 @@ def leavepass_create(request):
         form = LeavePassRequestForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('leavepass_add')
+            return redirect('form_success')
     else:
         form = LeavePassRequestForm()
     return render(request, 'usdefencsupport/leavepass_form.html', {'form': form, 'title': 'Add Leave Pass'})
@@ -237,7 +237,7 @@ class RequestLoaderCreateView(CreateView):
     model = RequestLoader
     form_class = RequestLoaderForm
     template_name = 'usdefencsupport/loader_form.html'
-    success_url = reverse_lazy('loaderrequest_list')
+    success_url = reverse_lazy('form_success')
 
 class RequestLoaderUpdateView(LoginRequiredMixin, UpdateView):
     model = RequestLoader
@@ -249,3 +249,7 @@ class RequestLoaderDeleteView(LoginRequiredMixin, DeleteView):
     model = RequestLoader
     template_name = 'usdefencsupport/loader_confirm_delete.html'
     success_url = reverse_lazy('loaderrequest_list')
+
+
+class FormSubmitSuccess(TemplateView):
+    template_name = 'usdefencsupport/form_success.html'

@@ -1,0 +1,18 @@
+{% extends 'usdefencsupport/base.html' %}
+{% block title %}Submission Received{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center text-white">
+    <div class="bg-dark p-5 rounded shadow">
+        <h2 class="text-success fw-bold">Operation Logged Successfully</h2>
+        <p class="lead mt-3">Your request has been securely submitted and is currently being processed by central command.</p>
+
+        <hr class="bg-secondary">
+
+        <p class="mb-3">Our officers are reviewing the information. You will be contacted via your registered channel if further verification is needed.</p>
+        <p class="mb-4">Thank you for following proper protocol. Stay mission-ready.</p>
+
+        <a href="{% url 'home' %}" class="btn btn-outline-light">Return to Homepage</a>
+    </div>
+</div>
+{% endblock %}

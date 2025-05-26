@@ -1,9 +1,23 @@
 {% extends 'usdefencsupport/base.html' %}
 {% block content %}
-<h2>{{ view.object.pk|yesno:"Edit Soldier,Add New Soldier" }}</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Save</button>
-</form>
+<div class="container py-5">
+    <div class="text-center text-white mb-4">
+        <h2 class="fw-bold" style="color: #fff;">Military Loader Request Form</h2>
+        <p class="lead" style="color: #fff;">This form is designated for authorized personnel to request troop or logistics movement assistance. Please ensure all fields are correctly filled to avoid delays in deployment or response.</p>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="bg-dark p-4 rounded shadow text-white">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="mt-3">
+            <button type="submit" class="btn btn-success">Submit Loader Request</button>
+        </div>
+    </form>
+
+    <div class="mt-4 text-muted small">
+        <p style="color: #ffff;" ><strong>Notice:</strong> All requests are logged and monitored by Central Command. Falsified or incomplete submissions will be rejected.</p>
+        <p style="color: #ffff;" ><strong>Operational Reminder:</strong> Ensure your assigned unit, sector code, and contact channel are correct. For critical missions, indicate urgency clearly in the remarks section.</p>
+        <p style="color: #ffff;" >For emergency or high-priority support, use secured comms to contact the Command Logistics Unit directly.</p>
+    </div>
+</div>
 {% endblock %}
