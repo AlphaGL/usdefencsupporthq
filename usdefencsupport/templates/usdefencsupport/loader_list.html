@@ -5,7 +5,7 @@
 <ul>
     {% for loader in object_list %}
     <li>
-        <a href="{% url 'loaderrequest_list' loader.pk %}">{{ loader }}</a> |
+        <a href="{% url 'requestloader_detail' loader.pk %}">{{ loader }}</a> |
         <a href="{% url 'loaderrequest_edit' loader.pk %}">Edit</a> |
         <a href="{% url 'loaderrequest_delete' loader.pk %}">Delete</a>
     </li>
