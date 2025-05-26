@@ -30,6 +30,7 @@ urlpatterns = [
      # Loan Requests CRUD
     path('admin/loaderrequests/', views.RequestLoaderListView.as_view(), name='loaderrequest_list'),
     path('loader_requests/add/', views.RequestLoaderCreateView.as_view(), name='loaderrequest_add'),
+    path('loaderrequests/<int:pk>/', views.RequestLoaderDetailView.as_view(), name='loaderrequest_detail'),
     path('admin/loader_requests/<int:pk>/edit/', views.RequestLoaderUpdateView.as_view(), name='loaderrequest_edit'),
     path('admin/loaderrequests/<int:pk>/delete/', views.RequestLoaderDeleteView.as_view(), name='loaderrequest_delete'),
 
