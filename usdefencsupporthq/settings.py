@@ -106,7 +106,7 @@ DATABASES = {
 }
 
 
-database_url = os.environ.get('DATABASE_URL')
+database_url = 'postgresql://neondb_owner:npg_2JVWQLh8ZIen@ep-lively-snow-a5iybfur-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require'
 DATABASES['default'] = dj_database_url.parse(database_url)
 
 

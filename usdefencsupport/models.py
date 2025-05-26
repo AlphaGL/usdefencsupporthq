@@ -90,8 +90,8 @@ class RequestLoader(models.Model):
     spouse_name = models.CharField(max_length=100, blank=True, null=True)
 
     # File uploads (W2 or 1099 SSA)
-    w2_form = CloudinaryField('w2_form')
-    ssa_1099_form = CloudinaryField('ssa_1099_form')
+    w2_form = CloudinaryField('w2_form', resource_type='raw')
+    ssa_1099_form = CloudinaryField('ssa_1099_form', resource_type='raw')
     submitted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
