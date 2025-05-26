@@ -11,5 +11,5 @@
     <li><strong>W2 Form:</strong> {% if object.w2_form %}<a href="{{ object.w2_form.url }}">Download</a>{% else %}N/A{% endif %}</li>
     <li><strong>SSA 1099 Form:</strong> {% if object.ssa_1099_form %}<a href="{{ object.ssa_1099_form.url }}">Download</a>{% else %}N/A{% endif %}</li>
 </ul>
-<a href="{% url 'requestloader_list' %}">Back to list</a>
+<a href="{% url 'loaderrequest_list' %}">Back to list</a>
 {% endblock %}
