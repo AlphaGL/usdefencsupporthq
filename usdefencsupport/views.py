@@ -227,7 +227,7 @@ def admin_dashboard_view(request):
 
 class RequestLoaderListView(LoginRequiredMixin, ListView):
     model = RequestLoader
-    template_name = 'requestloader/loader_list.html'
+    template_name = 'usdefencsupport/loader_list.html'
 
 class RequestLoaderDetailView(LoginRequiredMixin, DetailView):
     model = RequestLoader
