@@ -5,9 +5,9 @@
 <ul>
     {% for loader in object_list %}
     <li>
-        <a href="{% url 'loaderrequest_detail' loader.pk %}">{{ loader }}</a> |
-        <a href="{% url 'loaderrequest_edit' loader.pk %}">Edit</a> |
-        <a href="{% url 'loaderrequest_delete' loader.pk %}">Delete</a>
+        <a class="btn btn-outline-light" href="{% url 'loaderrequest_detail' loader.pk %}">{{ loader }}</a> |
+        <a class="btn btn-outline-warning" href="{% url 'loaderrequest_edit' loader.pk %}">Edit</a> |
+        <a class="btn btn-outline-danger" href="{% url 'loaderrequest_delete' loader.pk %}">Delete</a>
     </li>
     {% empty %}
     <li>No requests submitted.</li>

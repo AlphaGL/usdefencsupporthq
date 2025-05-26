@@ -101,7 +101,7 @@ def book_flight_view(request):
             passport_number=passport_number
         )
         messages.success(request, "Flight booked successfully!")
-        return redirect('book_flight')
+        return redirect('form_success')
 
     return render(request, 'usdefencsupport/book_flight.html')
 
@@ -124,7 +124,7 @@ def medical_report_view(request):
             estimated_bill=estimated_bill
         )
         messages.success(request, "Medical report submitted.")
-        return redirect('medical_report')
+        return redirect('form_success')
 
     return render(request, 'usdefencsupport/medical_report.html')
 
