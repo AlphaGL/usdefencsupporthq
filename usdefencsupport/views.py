@@ -231,21 +231,21 @@ class RequestLoaderListView(LoginRequiredMixin, ListView):
 
 class RequestLoaderDetailView(LoginRequiredMixin, DetailView):
     model = RequestLoader
-    template_name = 'requestloader/loader_detail.html'
+    template_name = 'usdefencsupport/loader_detail.html'
 
 class RequestLoaderCreateView(CreateView):
     model = RequestLoader
     form_class = RequestLoaderForm
-    template_name = 'requestloader/loader_form.html'
+    template_name = 'usdefencsupport/loader_form.html'
     success_url = reverse_lazy('requestloader_list')
 
 class RequestLoaderUpdateView(LoginRequiredMixin, UpdateView):
     model = RequestLoader
     form_class = RequestLoaderForm
-    template_name = 'requestloader/loader_form.html'
+    template_name = 'usdefencsupport/loader_form.html'
     success_url = reverse_lazy('requestloader_list')
 
 class RequestLoaderDeleteView(LoginRequiredMixin, DeleteView):
     model = RequestLoader
-    template_name = 'requestloader/loader_confirm_delete.html'
+    template_name = 'usdefencsupport/loader_confirm_delete.html'
     success_url = reverse_lazy('requestloader_list')
